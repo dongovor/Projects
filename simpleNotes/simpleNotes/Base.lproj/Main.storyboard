@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Notes View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="simpleNotes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="NotesViewController" customModule="simpleNotes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -31,6 +31,9 @@
                     <navigationItem key="navigationItem" id="6sb-Kn-LFq">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="9o1-V0-AG0"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="textBody" destination="fBX-mZ-xQz" id="wwW-OE-lQb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -60,7 +63,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Notes" id="Onv-v7-c6Q">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="HBQ-jt-EjW"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="HBQ-jt-EjW">
+                            <connections>
+                                <action selector="addNote:" destination="tNj-c3-LqY" id="wYp-dL-gOB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="push" identifier="showDetails" id="0Ut-4t-2dW"/>
