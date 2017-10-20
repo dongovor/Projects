@@ -29,9 +29,14 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="6sb-Kn-LFq">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="9o1-V0-AG0"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="9o1-V0-AG0">
+                            <connections>
+                                <action selector="doneBtn:" destination="BYZ-38-t0r" id="Kte-e8-OZW"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="doneButtonState" destination="9o1-V0-AG0" id="ByL-jn-YZH"/>
                         <outlet property="textBody" destination="fBX-mZ-xQz" id="wwW-OE-lQb"/>
                     </connections>
                 </viewController>

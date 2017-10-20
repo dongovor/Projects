@@ -8,10 +8,10 @@
 
 import UIKit
 
-class TableViewController: UITableViewController {
-
+class TableViewController: UITableViewController, NoteViewDelegate {
+    
     @IBAction func addNote(_ sender: Any) {
-        var newDict = ["title":"New Title", "body":"New Body"]
+        var newDict = ["title":"", "body":""]
         self.selectedIndex = 0
         self.tableView.reloadData()
         performSegue(withIdentifier: "showDetails", sender: nil)
@@ -47,6 +47,19 @@ class TableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let notesEditorVC = segue.destination
         notesEditorVC.navigationItem.title = notesArr[self.selectedIndex]["title"]
+        notesEditorVC.strBodyText = notesArr[self.selectedIndex]["body"]
+        notesEditorVC.delegate = self
+    }
+    
+    func didUpdateNoteWithTitle(newTitle: String, andBody newBody: String) {
+        self.notesArr[self.selectedIndex]["title"] = newTitle
+        self.notesArr[self.selectedIndex]["body"] = newBody
+        self.tableView.reloadData()
+    }
+    
+    func saveNotesArr() {
+        UserDefaults.standard.set(notesArr, forKey: "notes")
+        UserDefaults.standard.synchronize()
     }
 
 
